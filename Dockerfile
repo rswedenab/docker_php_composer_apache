@@ -13,11 +13,11 @@ RUN apt-get update && apt-get install -y \
   && docker-php-ext-install bcmath \
   && docker-php-ext-install mbstring
 
-#Overwrite the default vhost config
-COPY ./etc/000-default.conf /etc/apache2/sites-available/
-
 # Enable Apache mod_rewrite
 RUN a2enmod rewrite
+
+# Bespoken custom installation
+RUN sh custom_install.php
 
 #Start web server
 CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
