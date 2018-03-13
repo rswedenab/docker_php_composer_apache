@@ -4,12 +4,16 @@ FROM php:7.1-apache
 ENV DEBIAN_FRONTEND noninteractive
 
 #Install dependencies
-RUN apt-get update && apt-get install -y \
+RUN apt-get update \
+  && apt-get install -y \
     apt-utils \
     libmcrypt-dev \
     git \
     zip \
     unzip \
+  && apt-get autoremove \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /var/cache/apt/archive/*.deb \
   && docker-php-ext-install pdo_mysql \
   && docker-php-ext-install mcrypt \
   && docker-php-ext-install bcmath \
