@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y \
   && docker-php-ext-install bcmath \
   && docker-php-ext-install mbstring
 
-#Owerwrite the default vhost config
+#Overwrite the default vhost config
 COPY ./etc/000-default.conf /etc/apache2/sites-available/
 
 # Enable Apache mod_rewrite
