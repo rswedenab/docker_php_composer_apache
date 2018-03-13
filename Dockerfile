@@ -25,11 +25,11 @@ RUN curl -o /tmp/composer-setup.php https://getcomposer.org/installer \
 # Enable Apache mod_rewrite
 RUN a2enmod rewrite
 
-# Bespoken custom installations
-if [ -e custom_install.php ]
+# Bespoken custom installations and start
+if [ -e custom_start.sh ]
 then
-    RUN sh custom_install.php
+    RUN sh custom_start.sh
+else
+    #Start web server
+    CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
 fi
-
-#Start web server
-CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
