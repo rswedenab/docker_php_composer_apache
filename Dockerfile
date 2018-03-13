@@ -1,6 +1,8 @@
 
 FROM php:7.1-apache
 
+ENV DEBIAN_FRONTEND noninteractive
+
 #Install apt-utils, mcrypt & bcmath
 RUN apt-get update && apt-get install -y \
     apt-utils \
