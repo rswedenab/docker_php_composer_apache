@@ -33,5 +33,5 @@ RUN a2enmod rewrite
 VOLUME ["/var/www", "/etc/apache2"]
 
 # Start
-ADD start.sh
-CMD ["start.sh"]
+ADD run.sh /run.sh
+CMD ["run.sh"]
