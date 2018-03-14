@@ -29,5 +29,9 @@ RUN curl -o /tmp/composer-setup.php https://getcomposer.org/installer \
 # Enable Apache mod_rewrite
 RUN a2enmod rewrite
 
+# Volumes
+VOLUME ["/var/www", "/etc/apache2"]
+
+# Start
 ADD start.sh
 CMD ["start.sh"]
