@@ -30,10 +30,10 @@ RUN curl -o /tmp/composer-setup.php https://getcomposer.org/installer \
 RUN a2enmod rewrite
 
 # Volumes
-VOLUME ["/var/www", "/etc/apache2"]
+RUN mkdir -p /custom_config
+VOLUME ["/var/www", "/custom_config"]
 
 # Start
 ADD ./run.sh /run.sh
 RUN chmod 755 /*.sh
-# CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
 CMD ["/run.sh"]
