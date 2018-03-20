@@ -5,5 +5,6 @@ if [ -e /custom/start.sh ]; then
   /custom/start.sh
 else
   echo "File do not exist: /custom/start.sh"
-  /usr/sbin/apache2ctl -D FOREGROUND
 fi
+
+/usr/sbin/apache2ctl -D FOREGROUND
