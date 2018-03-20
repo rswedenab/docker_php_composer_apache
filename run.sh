@@ -1,7 +1,7 @@
 #!/bin/bash
 
-if [ -e /custom_config/custom_start.sh ]; then
-  /custom_config/custom_start.sh
+if [ -e /custom/start.sh ]; then
+  /custom/start.sh
 else
   /usr/sbin/apache2ctl -D FOREGROUND
 fi
