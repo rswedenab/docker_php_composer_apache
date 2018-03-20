@@ -30,8 +30,8 @@ RUN curl -o /tmp/composer-setup.php https://getcomposer.org/installer \
 RUN a2enmod rewrite
 
 # Volumes
-RUN mkdir -p /custom_config
-VOLUME ["/var/www", "/custom_config"]
+RUN mkdir -p /custom
+VOLUME ["/var/www", "/custom"]
 
 # Start
 ADD ./run.sh /run.sh
