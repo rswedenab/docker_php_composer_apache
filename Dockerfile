@@ -34,5 +34,6 @@ VOLUME ["/var/www", "/etc/apache2"]
 
 # Start
 ADD ./run.sh /run.sh
-#CMD ["/run.sh"]
-CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+RUN chmod 755 /*.sh
+# CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+CMD ["/run.sh"]
