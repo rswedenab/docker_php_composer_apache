@@ -13,11 +13,13 @@ RUN apt-get update \
     unzip \
   && apt-get autoremove \
   && apt-get clean \
-  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /var/cache/apt/archive/*.deb \
-  && docker-php-ext-install pdo_mysql \
-  && docker-php-ext-install mcrypt \
-  && docker-php-ext-install bcmath \
-  && docker-php-ext-install mbstring
+  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /var/cache/apt/archive/*.deb
+  
+# Install PHP extensions  
+  RUN docker-php-ext-install pdo_mysql \
+      docker-php-ext-install mcrypt \
+      docker-php-ext-install bcmath \
+      docker-php-ext-install mbstring
 
 # Install Composer
 RUN curl -o /tmp/composer-setup.php https://getcomposer.org/installer \
