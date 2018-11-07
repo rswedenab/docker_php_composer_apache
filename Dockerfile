@@ -1,5 +1,5 @@
 
-FROM php:7.1-apache
+FROM php:7.3-apache
 
 ENV DEBIAN_FRONTEND noninteractive
 
