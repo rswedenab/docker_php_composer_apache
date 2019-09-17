@@ -19,8 +19,11 @@ RUN apt-get update \
   RUN docker-php-ext-install pdo_mysql && \
       docker-php-ext-install mcrypt  && \
       docker-php-ext-install bcmath  && \
-      docker-php-ext-install mongodb && \
       docker-php-ext-install mbstring
+      
+# Install MongoDB extension
+RUN pecl install mongodb \
+    && docker-php-ext-enable mongodb
 
 # Install Composer
 RUN curl -o /tmp/composer-setup.php https://getcomposer.org/installer \
