@@ -11,6 +11,7 @@ RUN apt-get update \
     git \
     zip \
     unzip \
+    libsasl2-dev \
   && apt-get autoremove \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /var/cache/apt/archive/*.deb
@@ -19,6 +20,7 @@ RUN apt-get update \
   RUN docker-php-ext-install pdo_mysql && \
       docker-php-ext-install mcrypt  && \
       docker-php-ext-install bcmath  && \
+      docker-php-ext-install mongodb && \
       docker-php-ext-install mbstring
 
 # Install Composer
